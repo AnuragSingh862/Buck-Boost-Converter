@@ -9,24 +9,7 @@
 
 ---
 
-## 📑 Table of Contents
-1. [Overview](#-overview)
-2. [Theory](#-theory)
-3. [Project Workflow](#-project-workflow)
-4. [Stage 1 – Gate Driver (Square-Wave Generator)](#-stage-1--gate-driver-square-wave-generator)
-5. [Stage 2 – Breadboard Prototype](#-stage-2--breadboard-prototype)
-6. [Stage 3 – PCB Design & Fabrication](#-stage-3--pcb-design--fabrication)
-7. [Experimental Results](#-experimental-results)
-8. [Safety Precautions & Troubleshooting](#-safety-precautions--troubleshooting)
-9. [Tools & Equipment](#-tools--equipment)
-10. [Key Learnings](#-key-learnings)
-11. [Conclusion](#-conclusion)
-12. [Repository Structure](#-repository-structure)
-13. [Team](#-team)
-
----
-
-## 📝 Overview
+## Overview
 
 This project covers the full development cycle of a buck-boost converter, from soldering the gate-driver board to validating a custom-fabricated converter PCB against theoretical and simulated results.
 
@@ -39,7 +22,7 @@ This project covers the full development cycle of a buck-boost converter, from s
 
 ---
 
-## 📐 Theory
+## Theory
 
 For an ideal inverting buck-boost converter in CCM:
 
@@ -57,7 +40,7 @@ The output polarity is **inverted** relative to the input. Lowering the switchin
 
 ---
 
-## 🔄 Project Workflow
+## Project Workflow
 
 ```
 Gate-driver PCB  →  Breadboard prototype  →  Converter PCB design  →  Fabrication  →  Testing & comparison
@@ -66,7 +49,7 @@ Gate-driver PCB  →  Breadboard prototype  →  Converter PCB design  →  Fabr
 
 ---
 
-## 🔌 Stage 1 – Gate Driver (Square-Wave Generator)
+## Stage 1 – Gate Driver (Square-Wave Generator)
 
 **Aim:** Solder the provided PCB and components to build a pulse-wave generator (gate-driver circuit) for the MOSFET.
 
@@ -88,7 +71,7 @@ Gate-driver PCB  →  Breadboard prototype  →  Converter PCB design  →  Fabr
 
 ---
 
-## 🧪 Stage 2 – Breadboard Prototype
+## Stage 2 – Breadboard Prototype
 
 **Aim:** Construct a buck-boost circuit on a breadboard to validate the topology before moving to PCB.
 
@@ -102,7 +85,7 @@ Gate-driver PCB  →  Breadboard prototype  →  Converter PCB design  →  Fabr
 
 ---
 
-## 🛠 Stage 3 – PCB Design & Fabrication
+## Stage 3 – PCB Design & Fabrication
 
 **Aim:** Design, build, and test a buck-boost converter PCB driven by the gate-driver.
 
@@ -111,12 +94,9 @@ Gate-driver PCB  →  Breadboard prototype  →  Converter PCB design  →  Fabr
 - **Inductor voltage:** differential probe placed across header pins **H3** (supply potential) and **H4** (drain voltage).
 - **Switch current:** a jumper wire from **pin 3 to pin 2 of H4** puts a current-probe loop in series with the switch, so the measured current equals the switch current.
 
-> 🔗 Design files: *add EasyEDA project link here*
-> 🔗 Simulink model: *add MATLAB / Simulink link here*
-
 ---
 
-## 📊 Experimental Results
+## Experimental Results
 
 ### Test setup
 
@@ -141,25 +121,11 @@ Fixed input voltage (**15.1 V**) and load resistance; duty cycle varied. Inducto
 
 ### Part B – Discontinuous Conduction Mode (DCM)
 
-DCM was demonstrated by lowering the gate-pulse frequency while keeping the other parameters fixed. *Add DCM oscilloscope captures (inductor voltage and switch current) here:*
-
-```markdown
-![DCM waveforms](images/dcm_waveforms.png)
-```
+DCM was demonstrated by lowering the gate-pulse frequency while keeping the other parameters fixed.
 
 ---
 
-## ⚠️ Safety Precautions & Troubleshooting
-
-- Verify the whole circuit **before** applying any input.
-- **Apply the gate signal first, then the supply voltage.** Switching the supply on with no gate drive can damage the MOSFET.
-- Set the **attenuation** of the differential and current probes correctly, or readings will be scaled wrongly.
-- Always mount the MOSFET on a **heatsink**; otherwise it may burn out and damage the circuit.
-- If results look absurd, check for a **shorted MOSFET or diode** first.
-
----
-
-## 🧰 Tools & Equipment
+## Tools & Equipment
 
 | Category | Details |
 |---|---|
@@ -170,7 +136,7 @@ DCM was demonstrated by lowering the gate-pulse frequency while keeping the othe
 
 ---
 
-## 🧠 Key Learnings
+## Key Learnings
 
 - Practical operation of a buck-boost converter beyond ideal equations.
 - Effect of non-ideal components on voltage gain and efficiency.
@@ -179,37 +145,3 @@ DCM was demonstrated by lowering the gate-pulse frequency while keeping the othe
 - Complete PCB workflow: schematic, layout, fabrication, soldering, debugging.
 - Importance of bridging simulation with real hardware.
 
----
-
-## ✅ Conclusion
-
-A buck-boost converter was successfully designed, simulated, fabricated, and tested. Experimental results followed the theoretical trend, with deviations of roughly 11–18 % attributable to component non-idealities. The project built hands-on skill in circuit realization and strengthened the link between simulation and practical power electronics.
-
----
-
-## 📁 Repository Structure
-
-```
-.
-├── README.md
-├── images/
-│   ├── gate_driver_pcb.jpg
-│   ├── gate_driver_output.jpg
-│   ├── breadboard_setup.jpg
-│   └── pcb_test_setup.jpg
-├── simulation/        # MATLAB Simulink model (add)
-├── pcb/               # EasyEDA schematic, layout, Gerbers (add)
-└── results/           # DSO captures (add)
-```
-
----
-
-## 👥 Team
-
-*Add team member names and roll numbers here.*
-
----
-
-## 🙏 Acknowledgements
-
-EMPEL course staff and the **Makerspace Lab, IIT Indore** for PCB fabrication support.
